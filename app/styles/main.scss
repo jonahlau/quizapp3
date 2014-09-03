@@ -1,0 +1,47 @@
+body {
+  padding-top: 50px;
+}
+.starter-template {
+  padding: 40px 15px;
+  text-align: center;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.question {
+  text-align: center;
+  margin: 20px;
+}
+
+.btn-primary {
+  margin: 0 5px;
+}
+
+.questions {
+  text-align: center;
+}
+
+.well {
+  width: 70%;
+  text-align: center;
+}
+
+.countdownPanel {
+  text-align: center;
+  padding-right: 27%
+}
+
+.clearfix:after {
+     visibility: hidden;
+     display: block;
+     font-size: 0;
+     content: " ";
+     clear: both;
+     height: 0;
+     }
+.clearfix { display: inline-block; }
+/* start commented backslash hack \*/
+* html .clearfix { height: 1%; }
+.clearfix { display: block; }
