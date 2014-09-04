@@ -1,36 +1,23 @@
-<div>
-    <div ng-controller="CountdownCtrl" class="countdownPanel">
-        <h3 ng-hide="timesUp">You have {{time}} seconds left!</p>
-            <h3 ng-show="timesUp">Time's Up!</h3>
-            <button class="btn btn-success" ng-click="start()">Start</button>
-            <button class="btn btn-danger" ng-click="pause()">Pause</button>
-            <button class="btn btn-primary" ng-click="restart()">Restart</button>
-    </div>
-    <br>
-    <br>
-    <ul>
 
-        <li class="questions" ng-repeat="question in quiz | orderBy:'difficulty'">
-            <div class="well well-lg">
-                <strong>{{$index+1}}. {{ question.q }}</strong>
-                <br>
-                <br>
-                <button class="btn btn-primary" ng-repeat="option in question.options" ng-click="checkAnswer(question, option.value)" ng-disabled="question.answered">{{option.value}}</button>
-                <br>
-                <br>
-            </div>
-        </li>
-    </ul>
-    <div ng-show="donewithQuiz()">Your Score: {{score}}</div>
-</div>
-<br>
+  <div ng-include="'/views/timer.html'">
+  </div>
+  <br>
+  <br>
+  <ul>
 
+  <div ng-include = "'/views/questions.html'"></div>
+  <br>
 
 <div class="well well-lg" style="text-align:left">
-    <form class="form-horizontal" role="form" name="qForm" novalidate ">
+    <form class="form-horizontal" role="form" name="qForm" novalidate>
         <h3>Add a question!</h3>
         Your question:
-        <input type="text " class="form-control " ng-model="newQuestion.q " name="newQuestionCtrl" ng-minlength="10 " required><span class="glyphicon glyphicon-ok " ng-show="!qForm.newQuestionCtrl.$error.minlength && !qForm.newQuestionCtrl.$error.required " style="color: green "></span><span class="glyphicon glyphicon-remove " ng-show="qForm.newQuestionCtrl.$error.minlength || qForm.newQuestionCtrl.$error.required " style="color: red "></span>
+        <input type="text " class="form-control " ng-model="newQuestion.q " name="newQuestionCtrl" ng-minlength="10 " required>
+
+        <span class="glyphicon glyphicon-ok " ng-show="!qForm.newQuestionCtrl.$error.minlength && !qForm.newQuestionCtrl.$error.required " style="color: green "></span>
+
+        <span class="glyphicon glyphicon-remove " ng-show="qForm.newQuestionCtrl.$error.minlength || qForm.newQuestionCtrl.$error.required " style="color: red "></span>
+
         <br>Options: (at least 2)
         <div class="form-group ">
             <div ng-repeat="option in newQuestion.options " class="form-control ">
@@ -42,6 +29,7 @@
 
             </div>
         </div>
+
         <button class="btn btn-danger " ng-click="addOptionField() ">Add Option</button>
         <br>
         <br>Difficulty (1-10):
@@ -50,5 +38,4 @@
         <button type="submit " class="btn btn-danger " ng-click="addNewQuestion() " ng-disabled="qForm.$error.question_length">Submit</button >
         {{newQuestion.q}} {{newQuestion.answer}} {{newQuestion.difficulty}} {{newQuestion.options[0].value}}
     </form>
-</div>
 </div>

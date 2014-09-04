@@ -10,11 +10,16 @@
  */
 angular
   .module('quizApp', [
-    'ngCookies',
     'ngResource',
-    'ngRoute'
+    'ngRoute',
+    'angularLocalStorage'
   ])
-  .config(function ($routeProvider) {
+
+  .config(function ($routeProvider, $locationProvider) {
+    $locationProvider
+      .hashPrefix('/#!')
+      .html5Mode(true);
+
     $routeProvider
       .when('/', {
         templateUrl: 'views/main.html',

@@ -1,0 +1,7 @@
+<div ng-controller="CountdownCtrl" class="countdownPanel">
+    <h3 ng-hide="timesUp">You have {{time}} seconds left!</p>
+        <h3 ng-show="timesUp">Time's Up!</h3>
+        <button class="btn btn-success" ng-click="start()">Start</button>
+        <button class="btn btn-danger" ng-click="pause()">Pause</button>
+        <button class="btn btn-primary" ng-click="restart()">Restart</button>
+</div>
