@@ -1,0 +1,13 @@
+<li class="questions" ng-repeat="question in quiz | orderBy:'difficulty'">
+    <div class="well well-lg">
+        <strong>{{$index+1}}. {{ question.q }}</strong>
+        <br>
+        <br>
+        <button class="btn btn-primary" ng-repeat="option in question.options" ng-click="checkAnswer(question, option.value)" ng-disabled="question.answered">{{option.value}}</button>
+        <br>
+        <br>
+    </div>
+</li>
+</ul>
+<div ng-model="score">Your Score: {{score}}</div>
+</div>
